@@ -60,7 +60,7 @@ public class Stella_controller : Unit
 
     private void Shoot()
     {
-        Vector3 position = transform.position; position.y += 1.5F;
+        Vector3 position = transform.position; position.y += 1.5F; position.x += 1.35F;
         Bullet newBullet = Instantiate(bullet, position, bullet.transform.rotation) as Bullet;
 
         newBullet.Parent = gameObject;
