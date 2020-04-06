@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Monster : Unit 
 {
-    private void OnTriggerEnter2D(Collider2D collider)
+    protected virtual void Awake() { }
+    protected virtual void Start() { }
+    protected virtual void Update() { }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collider) //метод для дамага выд пулі (смерті від пулі)
     {
         Bullet bullet = collider.GetComponent<Bullet>();
         
@@ -14,3 +18,4 @@ public class Monster : Unit
         }
     }
 }
+

@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     public Vector3 Direction { set { direction = value; } }
 
     private SpriteRenderer sprite;
-    private void Awake()
+    private void Awake() 
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
     }

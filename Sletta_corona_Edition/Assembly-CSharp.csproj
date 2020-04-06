@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\CameraController.cs" />
+     <Compile Include="Assets\Demogorgon.cs" />
      <Compile Include="Assets\Monster.cs" />
      <Compile Include="Assets\Obstacle.cs" />
      <Compile Include="Assets\Stella_controller.cs" />
