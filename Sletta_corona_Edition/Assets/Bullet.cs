@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit.gameObject != parent)
         {
+            unit.ReceiveDamage();
             Destroy(gameObject);
         }
     }

@@ -10,14 +10,14 @@ public class Demogorgon : Unit
 
     private Vector3 direction;
 
-    private Bullet bullet;
+    
 
     private SpriteRenderer sprite;
 
     protected private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        bullet = Resources.Load<Bullet>("Bullet");
+        
     }
 
     protected private void Start()

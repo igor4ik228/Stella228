@@ -907,6 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1642060219}
+  - component: {fileID: 1642060223}
   - component: {fileID: 1642060222}
   - component: {fileID: 1642060221}
   - component: {fileID: 1642060220}
@@ -925,7 +926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642060218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: -0.14, z: -0.58489996}
+  m_LocalPosition: {x: 24.733, y: -0.14, z: -0.58489996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 166076555}
@@ -998,6 +999,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8256855, y: 1.9354053}
   m_EdgeRadius: 0
+--- !u!114 &1642060223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642060218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee04285fe3898724a87d10a143746d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rate: 2
 --- !u!1 &1825434386
 GameObject:
   m_ObjectHideFlags: 0
