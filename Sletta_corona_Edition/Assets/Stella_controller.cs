@@ -10,6 +10,18 @@ public class Stella_controller : Unit
    private float speed =  3.0F;
     [SerializeField]
     private float jumpForce = 15.0F; //сила прижка
+    
+    public int Lives
+    {
+        get { return lives; }
+        set
+            {
+            if (value < 5) lives = value;
+            livesBar.Refresh();
+            }
+    }
+    private LivesBar livesBar;
+
 
     private Bullet bullet; //ссилка на пулю
 
@@ -27,6 +39,7 @@ public class Stella_controller : Unit
     
     private void Awake()
     {
+        livesBar = FindObjectOfType<LivesBar>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -69,7 +82,7 @@ public class Stella_controller : Unit
 
     public override void ReceiveDamage()
     {
-        lives--;
+        Lives--;
 
         //відкидання при зіькненні:
         //змінення шкидкості в 0

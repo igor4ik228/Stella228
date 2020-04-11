@@ -6,6 +6,8 @@ public class Demoboar : Monster
 {
     [SerializeField]
     private float rate = 0.1F; //частота стрільби
+    [SerializeField]
+    private Color bulletColor = Color.white;
 
     private Bullet bullet;
     
@@ -26,7 +28,9 @@ public class Demoboar : Monster
 
         newBullet.Parent = gameObject;
         newBullet.Direction = -newBullet.transform.right;
+        newBullet.Color = bulletColor;
     }
+
 
     protected private void OnTriggerEnter2D(Collider2D collider) //метод для дамага выд пулі (смерті від пулі)
     {

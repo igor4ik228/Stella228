@@ -13,6 +13,11 @@ public class Bullet : MonoBehaviour
     private Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
+    public Color Color
+    {
+        set { sprite.color = value;  }
+    }
+
     private SpriteRenderer sprite;
     private void Awake() 
     {
