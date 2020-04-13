@@ -91,6 +91,19 @@ public class Stella_controller : Unit
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
 
         Debug.Log(lives);
+
+        if(lives<=0) //смерть
+        {
+            
+            Invoke("ReloadScene", 0);
+        }
+    }
+
+
+
+    private void ReloadScene()//перезагрузка сцени (уровня)
+    {
+        Application.LoadLevel(Application.loadedLevel);
     }
 }
 
