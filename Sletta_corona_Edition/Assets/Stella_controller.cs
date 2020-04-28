@@ -97,8 +97,18 @@ public class Stella_controller : Unit
             
             Invoke("ReloadScene", 0);
         }
+
+        
     }
 
+    ///Метод, який загружає сфену ФІНІШ при заткенні Стелли з колайдером замку
+   private void OnTriggerEnter2D(Collider2D finish)
+    {
+        if (finish.gameObject.tag == "Finish")
+        {
+            Application.LoadLevel("Finish");
+        }
+    }
 
 
     private void ReloadScene()//перезагрузка сцени (уровня)
