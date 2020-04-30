@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HeartPlus : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D colider)
+    private void OnTriggerEnter2D(Collider2D colider)//при зіткненні колайдерів Стіли і Серця - Сетелі буде +1ХР
     {
         Stella_controller stella_controller = colider.GetComponent<Stella_controller>();
         if (stella_controller)
         {
-            stella_controller.Lives++;
-            Destroy(gameObject);
+            stella_controller.Lives++;//більшення на 1 ХР
+            Destroy(gameObject);//видалення серця з сцени
         }
     }
 }

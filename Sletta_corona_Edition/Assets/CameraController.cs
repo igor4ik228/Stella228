@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        if (!target) target = FindObjectOfType<Stella_controller>().transform;
+        if (!target) target = FindObjectOfType<Stella_controller>().transform;//Слідкування за стелою
     }
     
     private void Update()
@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
                                                                      // і карта була би програчна
         
 
-        transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);//Швидкість оновлення позиції камери, яка слідкує за меперміщенням Стелли
     }
     
 }

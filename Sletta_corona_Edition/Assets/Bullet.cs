@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
         set { sprite.color = value;  }
     }
 
-    private SpriteRenderer sprite;
+    private SpriteRenderer sprite;//силка на компонент
     private void Awake() 
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -31,16 +31,16 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);//швидкість переміщення пулі
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)//метод, щоб Юніти не вбивали самі себе своїми пулями
     {
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit.gameObject != parent)
         {
-            unit.ReceiveDamage();
-            Destroy(gameObject);
+            unit.ReceiveDamage();//викликання методу для дамага
+            Destroy(gameObject);//при зіткненні видяляти пулю з карти
         }
     }
 

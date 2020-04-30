@@ -20,7 +20,7 @@ public class Stella_controller : Unit
             livesBar.Refresh();
             }
     }
-    private LivesBar livesBar;
+    private LivesBar livesBar;//сылка на алйфБар
 
 
     private Bullet bullet; //ссилка на пулю
@@ -44,13 +44,13 @@ public class Stella_controller : Unit
         animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
 
-        bullet = Resources.Load<Bullet>("Bullet");
+        bullet = Resources.Load<Bullet>("Bullet");//силка на ресурс (пулю), а іменно на префаб пулі, яким буде Стелла стріляти
     }
 
-    private void Update() //буде вся логыка, оброблювач подій
+    private void Update() //буде вся логыка, оброблювач подій, рух і постріл
     {
         if (Input.GetButtonDown("Fire1")) Shoot();
-        State = CharState.idle;
+        State = CharState.idle; //установлюється анімація айдл
         if (Input.GetButton("Horizontal")) Run();
         if (Input.GetButtonDown("Jump")) Jump();
     }
@@ -60,15 +60,15 @@ public class Stella_controller : Unit
         //задаємо векторний напрямок вправ і вліво
         Vector3 direction = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        sprite.flipX = direction.x < 0.0F;
+        sprite.flipX = direction.x < 0.0F; //принапрямку в іншу стронону моделька ігрока розвертається по осі Х 
 
-        State = CharState.walk;
+        State = CharState.walk; //устанволюється анімація волк
     }
 
     private void Jump()
     {
-        State = CharState.stellaJump;
-        rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        State = CharState.stellaJump; //включається анімація стрибка
+        rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse); //підкидання персонажа за допомогою імпульсів
     }
 
     private void Shoot()
@@ -77,7 +77,7 @@ public class Stella_controller : Unit
         Bullet newBullet = Instantiate(bullet, position, bullet.transform.rotation) as Bullet;
 
         newBullet.Parent = gameObject;
-        newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);//напрямок
+        newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);//напрямок пулів
     }
 
     public override void ReceiveDamage()
@@ -90,12 +90,12 @@ public class Stella_controller : Unit
         //відкидання в верх
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
 
-        Debug.Log(lives);
+        Debug.Log(lives);//допоміжний код, який в дебагу показує кількість ХР
 
-        if(lives<=0) //смерть
+        if(lives<=0) //смерть при умові 
         {
             
-            Invoke("ReloadScene", 0);
+            Invoke("ReloadScene", 0); //перезапуск сцени через 0 скунд
         }
 
         
@@ -104,9 +104,9 @@ public class Stella_controller : Unit
     ///Метод, який загружає сфену ФІНІШ при заткенні Стелли з колайдером замку
    private void OnTriggerEnter2D(Collider2D finish)
     {
-        if (finish.gameObject.tag == "Finish")
+        if (finish.gameObject.tag == "Finish")//у замка тег - це Фініш і якщо буде заткнення - то...
         {
-            Application.LoadLevel("Finish");
+            Application.LoadLevel("Finish"); //запуск сцени Фініш
         }
     }
 

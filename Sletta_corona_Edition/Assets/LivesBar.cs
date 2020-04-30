@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LivesBar : MonoBehaviour
 {
-    private Transform[] hearts = new Transform[5];
-    private Stella_controller stella_controller;
+    private Transform[] hearts = new Transform[5];//створюємо масив для панлі з серцями
+    private Stella_controller stella_controller;//ссілка на Стеллу
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class LivesBar : MonoBehaviour
         }
     }
 
-    public void Refresh()
+    public void Refresh()//метод, який перевіряє скільки в Стелли ХР і якщо в неї 3 ХР то родить видимими три сермя і тд. (він включає/виключає видимість обєктів в масиві)
     {
         for (int i = 0; i < hearts.Length; i++)
         {
