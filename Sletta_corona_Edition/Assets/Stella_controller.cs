@@ -10,7 +10,20 @@ public class Stella_controller : Unit
    private float speed =  3.0F;
     [SerializeField]
     private float jumpForce = 15.0F; //сила прижка
-    
+
+    //-----------------------
+    [SerializeField]
+    private int stars = 0;//HP
+
+    public int  Stars
+    {
+        get { return stars; }
+        set
+        {
+            if (value < 5) stars = value;
+        }
+    }
+    //-------------------------
     public int Lives
     {
         get { return lives; }
@@ -91,8 +104,9 @@ public class Stella_controller : Unit
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
 
         Debug.Log(lives);//допоміжний код, який в дебагу показує кількість ХР
+        Debug.Log(stars);//допоміжний код, який в дебагу показує кількість STARs
 
-        if(lives<=0) //смерть при умові 
+        if (lives<=0) //смерть при умові 
         {
             
             Invoke("ReloadScene", 0); //перезапуск сцени через 0 скунд
