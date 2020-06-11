@@ -114,13 +114,17 @@ public class Stella_controller : Unit
 
         
     }
-
+    private int lvl1_stars = 0;//HP
+    
     ///Метод, який загружає сфену ФІНІШ при заткенні Стелли з колайдером замку
    private void OnTriggerEnter2D(Collider2D finish)
     {
         if (finish.gameObject.tag == "Finish")//у замка тег - це Фініш і якщо буде заткнення - то...
         {
-            Application.LoadLevel("Finish"); //запуск сцени Фініш
+            lvl1_stars = stars;
+            Application.LoadLevel("GameList"); //запуск сцени Фініш           
+            Debug.Log(stars);
+            Debug.Log(lvl1_stars);
         }
     }
 
@@ -129,6 +133,8 @@ public class Stella_controller : Unit
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+
+    
 }
 
 public enum CharState //клас з можливими станами персонажа
