@@ -14,9 +14,9 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        levelComplete = PlayerPrefs.GetInt("LevelComplete");
-        level2B.interactable = false;
-        level3B.interactable = false;
+        levelComplete = PlayerPrefs.GetInt("LevelComplete");//получаєм інформацію які уровін завершені і на які рівні можна перейти
+        level2B.interactable = false;//по стандарту кнопка не активна
+        level3B.interactable = false;//тоже
 
         switch (levelComplete)//свіч кейс для доступу до уровнів
         {

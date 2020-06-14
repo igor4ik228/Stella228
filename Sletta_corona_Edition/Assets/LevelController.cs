@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
     int sceneIndex;//для сприйняття номера уровня
     int levelComplete;//які рінві у нас завершені
     
-
+     
     void Start()
     {
         if(instance == null) //повноціний звязок кода з колайдером персонажа
@@ -32,7 +32,7 @@ public class LevelController : MonoBehaviour
         {
             if (levelComplete < sceneIndex) //якщо завершено рівнів меньше чім наший теперішній рівень то 
                 PlayerPrefs.SetInt("LevelComplete", sceneIndex); //має записати текучий рівень, якщо ми ще не завершили всі рівні
-            Invoke("NextLevel", 1f);//відкрити наступний рівень        
+            Invoke("NextLevel", 1f);//відкрити наступний рівень (через скрипт НекстЛевел (який закріпнений на флажку)        
         }
     }
 

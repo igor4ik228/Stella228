@@ -464,6 +464,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 371885586128801461, guid: f9403e4aef713034ba7e663e8b4ad19e,
+        type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 371885586128801462, guid: f9403e4aef713034ba7e663e8b4ad19e,
         type: 3}
       propertyPath: m_Name

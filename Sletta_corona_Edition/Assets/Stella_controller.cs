@@ -68,12 +68,13 @@ public class Stella_controller : Unit
         if (Input.GetButton("Horizontal")) Run();
         if (Input.GetButtonDown("Jump")) Jump();
 
+       /*
         //якщо ігрок нажме кнопку ЕСКЕЙП то запуститься меню з рівнями
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
-
+        */
     }
 
     private void Run()
