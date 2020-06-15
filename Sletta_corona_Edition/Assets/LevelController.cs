@@ -24,7 +24,7 @@ public class LevelController : MonoBehaviour
 
     public void isEndGame()
     {
-        if (sceneIndex == 3)//провірка чи це остінній рівень
+        if (sceneIndex == 9)//провірка чи це остінній рівень
         {
             Invoke("LoadMainMenu", 1f);//запустити головне меню(з рівнями) з затримкою в один фрейм
         }
@@ -43,6 +43,9 @@ public class LevelController : MonoBehaviour
 
     void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Finish");
     }
+
+
+
 }

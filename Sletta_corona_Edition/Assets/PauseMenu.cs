@@ -50,4 +50,10 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
