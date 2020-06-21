@@ -63,7 +63,11 @@ public class Stella_controller : Unit
 
     private void Update() //буде вся логыка, оброблювач подій, рух і постріл
     {
-        if (Input.GetButtonDown("Fire1")) Shoot();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+         //   SoundManager.snd.PlayAttacSounds();
+        }
         State = CharState.idle; //установлюється анімація айдл
         if (Input.GetButton("Horizontal")) Run();
         if (Input.GetButtonDown("Jump")) Jump();
