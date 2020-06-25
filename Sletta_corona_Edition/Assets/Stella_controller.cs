@@ -12,19 +12,6 @@ public class Stella_controller : Unit
     [SerializeField]
     private float jumpForce = 15.0F; //сила прижка
 
-    //-----------------------
-    [SerializeField]
-    private int stars = 0;//HP
-
-    public int  Stars
-    {
-        get { return stars; }
-        set
-        {
-            if (value < 5) stars = value;
-        }
-    }
-    //-------------------------
     public int Lives
     {
         get { return lives; }
@@ -66,19 +53,12 @@ public class Stella_controller : Unit
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
-         //   SoundManager.snd.PlayAttacSounds();
         }
         State = CharState.idle; //установлюється анімація айдл
         if (Input.GetButton("Horizontal")) Run();
         if (Input.GetButtonDown("Jump")) Jump();
 
-       /*
-        //якщо ігрок нажме кнопку ЕСКЕЙП то запуститься меню з рівнями
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-        */
+      
     }
 
     private void Run()
@@ -117,7 +97,7 @@ public class Stella_controller : Unit
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
 
         Debug.Log(lives);//допоміжний код, який в дебагу показує кількість ХР
-        Debug.Log(stars);//допоміжний код, який в дебагу показує кількість STARs
+      
 
         if (lives<=0) //смерть при умові 
         {
@@ -126,19 +106,6 @@ public class Stella_controller : Unit
         }
 
         
-    }
-    private int lvl1_stars = 0;//HP
-    
-    ///Метод, який загружає сфену ФІНІШ при заткенні Стелли з колайдером замку
-   private void OnTriggerEnter2D(Collider2D finish)
-    {
-        if (finish.gameObject.tag == "Finish")//у замка тег - це Фініш і якщо буде заткнення - то...
-        {
-            lvl1_stars = stars;
-            Application.LoadLevel("GameList"); //запуск сцени Фініш           
-            Debug.Log(stars);
-            Debug.Log(lvl1_stars);
-        }
     }
 
 
